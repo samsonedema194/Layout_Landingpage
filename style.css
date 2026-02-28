@@ -1,0 +1,481 @@
+/* --- FONTS --- */
+@font-face {
+    font-family: 'Palo';
+    src: url('../assets/palo-font/palo-bold.ttf') format('truetype');
+    font-weight: 700;
+}
+@font-face {
+    font-family: 'Palo';
+    src: url('../assets/Palo-font/palo-regular.ttf') format('truetype');
+    font-weight: 400;
+}
+.hero-headline {
+    font-family: 'Palo', sans-serif;
+    font-weight: 400;
+    font-size: 68px;
+    /* ADJUST THIS: Line-height (leading) to match Figma. 1.0 to 1.1 is usually best for big headers */
+    line-height: 1.1; 
+    
+    /* LIMIT THE WIDTH: Adjust this until you get exactly 3 lines */
+    max-width: 2000px; 
+    
+    margin-bottom: 24px;
+    letter-spacing: -0.02em; /* Often Figma fonts have tight tracking */
+}
+
+:root {
+    --purple: #5700C6;
+    --yellow: #F6F780;
+    --blue: #08B7FF;
+    --dark: #1A1A1A;
+    --red: #A10D3D;
+    --dark-blue: #1A3BC0;
+    --white: #FFFFFF;
+    
+    /* CUSTOMIZABLE HOVER COLORS */
+    --hover-color-nav: #08b7ff;
+    --hover-color-hero: #F6F780;
+    --hover-color-secure: #08b7ff;
+    
+    --radius: 8px; /* Your 8px border radius */
+}
+
+/* --- GLOBAL LAYOUT --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Palo', sans-serif;
+    background-color: var(--white);
+    color: var(--dark);
+}
+
+.container {
+    max-width: 1440px; /* Adjust based on your screen size */
+    margin: 0 auto;
+    /* 86px SPACING ON LEFT AND RIGHT */
+    padding-left: 86px;
+    padding-right: 86px;
+}
+
+/* --- NAVBAR --- */
+.navbar {
+    background-color: var(--purple);
+    height: 124px;
+    width: 100%;
+
+    /* "fixed position" This locks the nav bar to the top */
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo {
+    width: 120px;
+    height: 39px;
+    color: var(--white);
+    font-weight: 700;
+    font-size: 32px;
+    letter-spacing: -1.5px;
+    display: flex;
+    align-items: center;
+}
+
+/* --- BUTTONS --- */
+.btn-primary {
+    width: 222px;
+    height: 58px;
+    border-radius: var(--radius);
+    border: 1.5px solid var(--dark);
+    font-weight: 700;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-nav {
+    background-color: var(--yellow);
+}
+
+.btn-hero {
+    background-color: var(--blue);
+}
+
+/* HOVER SCALE & COLOR CHANGE */
+.btn-nav:hover {
+    background-color: var(--hover-color-nav);
+    color: #FFFFFF;
+   transform: scale(1.08) translateY(-3px);
+
+    /* changes the text color */
+}
+
+.btn-hero:hover {
+    background-color: var(--hover-color-hero);
+    transform: scale(1.08) translateY(-3px);
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    width: 100%;
+    max-width: 1280px; /* Set the design width */
+    height: 724px;     /* Set the exact design height */
+    margin: 0 auto;    /* Centers the section if the screen is wider than 1280px */
+    margin-top: 100px;
+    
+    display: flex;
+    align-items: center;
+    padding: 0; /* Removing top/bottom padding since we have a fixed height */
+    
+    /* Your existing gradient */
+    background: linear-gradient(135deg, #c89aff -100%,#ffffff 100%, #ffffff 100%, #FFFFFF 100%);
+}
+
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 40px;
+    align-items: center;
+    width: 100%;
+}
+
+.hero-headline {
+    font-size: 68px; /* Palo Bold 68 */
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 30px;
+}
+
+.hero-description {
+    font-size: 35px; /* Palo Regular 35 */
+    font-weight: 400;
+    line-height: 1.3;
+    color: #333;
+    margin-bottom: 50px;
+}
+
+.floating-asset {
+    /* Exact scale from your design */
+    width: 487px;
+    height: 487px;
+    
+    /* Ensures the image stays sharp and fits the box */
+    object-fit: contain; 
+    
+    /* Keep your existing animation and shadow */
+    filter: drop-shadow(0 25px 50px rgba(0,0,0,0.1));
+    animation: floatEffect 5s ease-in-out infinite;
+}
+
+
+@keyframes floatEffect {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 1100px) {
+    .container {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    .hero-headline { font-size: 50px; }
+    .hero-description { font-size: 28px; }
+}
+
+.features {
+    padding: 100px 0;
+    background-color: #FFFFFF;
+}
+
+.features-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 50px;
+    margin-top: 60px;
+}
+
+.section-title {
+    font-size: 48px;
+    font-weight: 700;
+    max-width: 600px;
+}
+
+.slider-controls {
+    display: flex;
+    gap: 15px;
+}
+
+.arrow-btn {
+    width: 107px;
+    height: 107px;
+    border-radius: 100%;
+    border: 1.5px solid var(--dark);
+    background: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.arrow-btn:hover {
+    background-color: var(--blue);
+    color: white;
+    transform: scale(1.08) translateY(-3px);
+}
+
+/* THE SLIDER CONTAINER */
+.features-slider {
+    display: flex;
+    gap: 45px;
+    overflow-x: auto; /* Allows scrolling */
+    padding-bottom: 20px;
+    scroll-behavior: smooth;
+}
+
+/* Hide scrollbar for clean look */
+.features-slider::-webkit-scrollbar {
+    display: none;
+}
+
+/* THE CARDS */
+.feature-card {
+    min-width: 450px; /* Width of the cards */
+    height: 450px;
+    border-radius: 15px;
+    padding: 50px;
+    position: relative;
+    overflow: hidden;
+    color: white;
+    
+    .card-icon {
+    position: absolute;
+    margin-bottom: 50px;
+    
+    /* 1. PADDING FROM EDGES */
+    /* Increase these numbers to move the image further away from the corner */
+    bottom: 0px; 
+    right: 50px; 
+
+    /* 2. SCALING */
+    /* Adjust the width to scale the image up or down */
+    width: 180px; 
+    height: auto;
+    
+    /* 3. FINE-TUNING SCALE */
+    /* You can also use scale() to quickly increase the size by 20% */
+    transform: scale(1.1); 
+    
+    /* Ensures the image stays sharp */
+    object-fit: contain;
+    
+    /* Smooth transition for any future hover effects on the image itself */
+    transition: all 0.4s ease;}
+
+    .card-icon4 {
+    /* !This is a special styling for card icon 4 */
+    position: absolute;
+    margin-bottom: 50px;
+    bottom: 0px; 
+    right: 50px; 
+    width: 150px; 
+    height: auto;
+    transform: scale(1.1); 
+    object-fit: contain;
+    transition: all 0.4s ease;
+}
+
+   
+}
+
+.purple-card { background-color: var(--purple); }
+.dark-card { background-color: var(--dark); }
+.red-card{ background-color: var(--red);}
+.darkblue-card{ background-color: var(--dark-blue);}
+
+.feature-card h3 {
+    font-size: 33px;
+    margin-bottom: 15px;
+}
+
+.feature-card p {
+    font-size: 18px;
+    line-height: 1.5;
+    opacity: 0.9;
+}
+
+/* HOVER EFFECT: Scale up as you requested */
+.card-interactive:hover {
+    transform: scale(1.03); /* Slight increase in size */
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  
+}
+
+.card-icon {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 120px;
+}
+
+/* --- COHORT SECTION --- */
+.cohort {
+    padding: 120px 0;
+    /* Purple Gradient from your image */
+    background: linear-gradient(180deg, #5200D1 0%, #7B3FE4 100%);
+    color: white;
+    text-align: center;
+}
+
+.cohort-intro {
+    margin-bottom: 60px;
+}
+
+.cohort-headline {
+    font-size: 68px; /* Palo Bold */
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+.cohort-sub {
+    font-size: 24px; /* Palo Regular */
+    max-width: 850px;
+    margin: 0 auto;
+    line-height: 1.4;
+    opacity: 0.95;
+}
+
+/* --- THE SPLIT CARD --- */
+.cohort-card {
+    display: flex;
+    max-width: 1000px;
+    margin: 0 auto 60px auto;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1.5px solid #1A1A1A;
+    text-align: left;
+}
+
+.card-left {
+    background-color: #1A1A1A; /* Dark side */
+    width: 38%;
+    padding: 60px 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-title {
+    color: white;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.icon-circle {
+    width: 80px;
+    height: 80px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1A1A1A;
+    margin-top: 40px;
+}
+
+.card-right {
+    width: 62%;
+    padding: 60px 50px;
+    color: #1A1A1A;
+}
+
+.checklist {
+    list-style: none;
+}
+
+.checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 22px 0;
+    border-bottom: 1.2px solid #EAEAEA;
+}
+
+.checklist li:last-child {
+    border-bottom: none;
+}
+
+.check-box {
+    background: #1A1A1A;
+    color: white;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    font-size: 12px;
+    flex-shrink: 0;
+    margin-top: 4px;
+}
+
+.checklist p {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+/* --- FOOTER CTA --- */
+.cohort-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+}
+
+.limited-text {
+    font-size: 24px;
+    font-weight: 700;
+    color: #F0F883; /* Yellow Text */
+}
+
+/* YOUR DEFAULT BUTTON STYLE */
+.btn-secure {
+    background-color: #F0F883; /* Yellow */
+    color: #1A1A1A;
+    border: 1.5px solid #1A1A1A;
+    /* SCALE: 222x58px */
+    width: 222px;
+    height: 58px;
+    /* RADIUS: 8px */
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-secure:hover {
+    background-color: var(--hover-color-secure);
+    color: #FFFFFF;
+    transform: scale(1.08) translateY(-3px);
+}
+
