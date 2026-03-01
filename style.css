@@ -36,6 +36,7 @@
     --hover-color-nav: #08b7ff;
     --hover-color-hero: #F6F780;
     --hover-color-secure: #08b7ff;
+     --hover-color-movement: #F6F780;
     
     --radius: 8px; /* Your 8px border radius */
 }
@@ -64,7 +65,7 @@ body {
 /* --- NAVBAR --- */
 .navbar {
     background-color: var(--purple);
-    height: 124px;
+    height: 100px;
     width: 100%;
 
     /* "fixed position" This locks the nav bar to the top */
@@ -133,7 +134,7 @@ body {
 /* --- HERO SECTION --- */
 .hero {
     width: 100%;
-    max-width: 1280px; /* Set the design width */
+    max-width: 100%; /* Set the design width */
     height: 724px;     /* Set the exact design height */
     margin: 0 auto;    /* Centers the section if the screen is wider than 1280px */
     margin-top: 100px;
@@ -200,8 +201,9 @@ body {
 }
 
 .features {
-    padding: 100px 0;
+    padding: 120px 0;
     background-color: #FFFFFF;
+    overflow-x: hidden; /* Prevents the whole website from shaking/scrolling horizontally */
 }
 
 .features-header {
@@ -243,8 +245,13 @@ body {
 /* THE SLIDER CONTAINER */
 .features-slider {
     display: flex;
-    gap: 45px;
+    gap: 32px;
+    width: 100vw;
+    margin-left: calc(-1 * var(--side-padding)); /* Pulls it back to the very edge of the screen */
     overflow-x: auto; /* Allows scrolling */
+    padding-left: var(--side-padding); /* But starts the first card aligned with your logo/headline */
+    padding-right: var(--side-padding); /* Adds padding at the very end of the scroll */
+    overflow-x: scroll;
     padding-bottom: 20px;
     scroll-behavior: smooth;
 }
@@ -338,7 +345,7 @@ body {
 .cohort {
     padding: 120px 0;
     /* Purple Gradient from your image */
-    background: linear-gradient(180deg, #5200D1 0%, #7B3FE4 100%);
+    background: linear-gradient(-45deg, #7518E9 0%,#9A4AFF 25%,#7518E9 60%, #7518E9 100%);
     color: white;
     text-align: center;
 }
@@ -416,7 +423,7 @@ body {
     align-items: flex-start;
     gap: 18px;
     padding: 22px 0;
-    border-bottom: 1.2px solid #EAEAEA;
+    border-bottom: 1px solid #000000;
 }
 
 .checklist li:last-child {
@@ -452,9 +459,11 @@ body {
 }
 
 .limited-text {
-    font-size: 24px;
-    font-weight: 700;
-    color: #F0F883; /* Yellow Text */
+    font-size: 30px;
+    font-weight: 500;
+    color: #F6F780; /* Yellow Text */
+    padding-bottom: 30px;
+    padding-top: 20px;
 }
 
 /* YOUR DEFAULT BUTTON STYLE */
@@ -478,4 +487,92 @@ body {
     color: #FFFFFF;
     transform: scale(1.08) translateY(-3px);
 }
+
+/* --- SOLO OVER SECTION --- */
+.solo-over {
+    padding: 120px 0;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.avatar-group {
+    margin-bottom: 60px;
+    display: flex;
+    justify-content: center;
+}
+
+.avatars-img {
+    width: 450px; /* Adjust based on your asset size */
+    height: auto;
+    /* Optional: subtle float animation like the abacus */
+    animation: floatSmall 5s ease-in-out infinite;
+}
+
+@keyframes floatSmall {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.solo-headline {
+    font-family: 'Palo', sans-serif;
+    font-weight: 700;
+    font-size: 68px; /* Your design spec */
+    line-height: 1.1;
+    color: var(--dark);
+    margin-bottom: 32px;
+}
+
+.solo-description {
+    font-family: 'Palo', sans-serif;
+    font-weight: 400;
+    font-size: 30px; /* Slightly smaller than hero for hierarchy */
+    line-height: 1.4;
+    max-width: 950px;
+    margin: 0 auto 50px auto;
+    color: #333;
+}
+
+.solo-content {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; /*. This centers the button*/
+    text-align: center;
+    
+}
+
+.avatars-img {
+    max-width: 100%;
+    margin-bottom: 40px;
+    justify-content: center;
+    width: 453px;
+    height: auto;
+    padding-top: 80px;
+}
+
+
+/* --- BLUE MOVEMENT BUTTON --- */
+.btn-movement {
+    background-color: #00AEEF; /* The bright blue from your image */
+    color: var(--dark); /* Dark text as seen in screenshot */
+    border: 1.5px solid var(--dark);
+    
+    /* YOUR EXACT SPECS */
+    width: 222px;
+    height: 58px;
+    border-radius: 8px;
+    
+    font-family: 'Palo', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-movement:hover {
+    background-color: var(--hover-color-movement);
+    transform: scale(1.08) translateY(-3px);
+}
+
+
+
 
