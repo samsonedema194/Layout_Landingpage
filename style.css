@@ -7,7 +7,7 @@
 @font-face {
     font-family: 'Palo';
     src: url('../assets/Palo-font/palo-regular.ttf') format('truetype');
-    font-weight: 400;
+    font-weight: 100;
 }
 .hero-headline {
     font-family: 'Palo', sans-serif;
@@ -220,6 +220,13 @@ body {
     max-width: 600px;
 }
 
+.section-title-2 {
+    font-size: 48px;
+    font-weight: 700;
+    max-width: 600px;
+    color: var(--white);
+}
+
 .slider-controls {
     display: flex;
     gap: 15px;
@@ -242,6 +249,33 @@ body {
     transform: scale(1.08) translateY(-3px);
 }
 
+.arrow-btn-2 {
+    width: 107px;
+    height: 107px;
+    border-radius: 100%;
+    border: 1.5px solid var(--white);
+    background: transparent;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.arrow-btn-2 img {
+    filter: invert(100%);
+    transition: all 0.3s ease;
+}
+
+.arrow-btn-2:hover {
+    background-color: var(--white);
+    color: white;
+    transform: scale(1.08) translateY(-3px);
+}
+
+.arrow-btn-2:hover img {
+    filter: invert(0%);
+}
+
+
 /* THE SLIDER CONTAINER */
 .features-slider {
     display: flex;
@@ -263,8 +297,8 @@ body {
 
 /* THE CARDS */
 .feature-card {
-    min-width: 450px; /* Width of the cards */
-    height: 450px;
+    min-width: 591px; /* Width of the cards */
+    height: 611px;
     border-radius: 15px;
     padding: 50px;
     position: relative;
@@ -274,6 +308,8 @@ body {
     .card-icon {
     position: absolute;
     margin-bottom: 50px;
+
+    
     
     /* 1. PADDING FROM EDGES */
     /* Increase these numbers to move the image further away from the corner */
@@ -282,7 +318,7 @@ body {
 
     /* 2. SCALING */
     /* Adjust the width to scale the image up or down */
-    width: 180px; 
+    width: 258px; 
     height: auto;
     
     /* 3. FINE-TUNING SCALE */
@@ -295,20 +331,47 @@ body {
     /* Smooth transition for any future hover effects on the image itself */
     transition: all 0.4s ease;}
 
-    .card-icon4 {
+    .card-icon1 {
     /* !This is a special styling for card icon 4 */
     position: absolute;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     bottom: 0px; 
     right: 50px; 
-    width: 150px; 
+    width: 258px; 
     height: auto;
     transform: scale(1.1); 
     object-fit: contain;
     transition: all 0.4s ease;
 }
 
-   
+.card-icon3 {
+    /* !This is a special styling for card icon 4 */
+    position: absolute;
+    margin-bottom: 50px;
+    bottom: 0px; 
+    right: 50px; 
+    width: 240px; 
+    height: auto;
+    transform: scale(1.1); 
+    object-fit: contain;
+    transition: all 0.4s ease;
+}
+
+
+    .card-icon4 {
+    /* !This is a special styling for card icon 4 */
+    position: absolute;
+    margin-bottom: 50px;
+    bottom: 0px; 
+    right: 50px; 
+    width: 195px; 
+    height: auto;
+    transform: scale(1.1); 
+    object-fit: contain;
+    transition: all 0.4s ease;
+}
+
+
 }
 
 .purple-card { background-color: var(--purple); }
@@ -317,14 +380,16 @@ body {
 .darkblue-card{ background-color: var(--dark-blue);}
 
 .feature-card h3 {
-    font-size: 33px;
-    margin-bottom: 15px;
+    font-size: 35px;
+    margin-bottom: 20px;
 }
 
 .feature-card p {
-    font-size: 18px;
-    line-height: 1.5;
+    font-size: 30px;
+    line-height: 1.3;
     opacity: 0.9;
+    color: #F9F9F9;
+    font-weight: 100;
 }
 
 /* HOVER EFFECT: Scale up as you requested */
@@ -445,7 +510,7 @@ body {
 }
 
 .checklist p {
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 400;
     line-height: 1.4;
 }
@@ -573,6 +638,322 @@ body {
     transform: scale(1.08) translateY(-3px);
 }
 
+/* --- INDIVIDUAL REVIEW CARDS (SECTION 7) --- */
+.review {
+    background-color:#242424;
+    padding: 120px 0;
+    overflow: hidden; /* Prevents horizontal scroll on the whole page when sliding */
+}
+
+.reviews-slider {
+    display: flex;
+    gap: 32px; /* Consistent spacing between cards */
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 20px 0;
+    scrollbar-width: none; /* Hide scrollbar Firefox */
+}
+
+.reviews-slider::-webkit-scrollbar {
+    display: none; /* Hide scrollbar Chrome/Safari */
+}
+
+.review-card {
+    /* EXACT CARD DIMENSIONS */
+    min-width: 420px;
+    height: 400px;
+    
+    /* VISUAL STYLE */
+    background-color: #FFFFFF;
+    border-radius: 24px;
+    padding: 60px 50px;
+    flex-shrink: 0; /* Prevents cards from squishing on scroll */
+    
+    /* LAYOUT */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.review-card:hover {
+    transform: translateY(-12px); /* Subtle lift on hover */
+}
+
+/* TYPOGRAPHY: REVIEWER NAME */
+.reviewer-name {
+    font-family: 'Palo', sans-serif;
+    font-size: 35px; /* Large, bold name for hierarchy */
+    font-weight: 700;
+    color: #1A1A1A;
+    margin-bottom: 24px;
+    line-height: 1.1;
+}
+
+/* TYPOGRAPHY: TESTIMONIAL TEXT */
+.reviewer-text {
+    font-family: 'Palo', sans-serif;
+    font-size: 24px; /* Clean readability size as requested */
+    line-height: 1.5;
+    font-weight: 400;
+    color: #1A1A1A;
+    opacity: 0.9; /* Slight softness for the long-form text */
+}
 
 
 
+/* --- SECTION 8: PARTNERSHIP & IMPACT --- */
+
+.partnership {
+    padding: 120px 0;
+    background-color: #FFFFFF;
+}
+
+.partnership-intro {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.partnership-headline {
+    font-size: 68px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    color: #1A1A1A;
+}
+
+.partnership-sub {
+    font-size: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+    color: #444;
+    line-height: 1.4;
+}
+
+/* THE DUAL CARD GRID */
+.impact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1.5px solid #1A1A1A;
+    border-radius: 24px;
+    overflow: hidden; /* Clips the dark background to the border radius */
+}
+
+.impact-card {
+    display: flex;
+    flex-direction: column;
+}
+
+/* The vertical divider line between the two cards */
+.impact-card:first-child {
+    border-right: 1.5px solid #1A1A1A;
+}
+
+/* TOP DARK BOX (Icon, Title, Desc) */
+.card-top-dark-bg {
+    background-color: #1A1A1A;
+    color: white;
+    padding: 50px 50px;
+    height: 460px; /* Fixed height to keep icons and titles aligned */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* CUSTOM ICON SCALING */
+.impact-icon-wrapper {
+    width: 80px;  /* Frame size for icons */
+    height: 80px;
+    margin-bottom: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.custom-impact-icon {
+    width: 132px;
+    height: auto;
+    padding-top: 59px;
+    padding-bottom: 5px;
+    object-fit: contain; /* Keeps icon proportions perfect */
+}
+
+.card-top-dark-bg h3 {
+    font-size: 35px;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.card-top-dark-bg p {
+    font-size: 25px;
+    line-height: 1.3;
+    margin-bottom: 90px;
+}
+
+/* BOTTOM WHITE BOX (List & Button) */
+.card-bottom {
+    padding: 60px 50px;
+    background-color: #FFFFFF;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* THE CHECKLIST WITH 2.5PX LINES */
+.impact-list {
+    list-style: none;
+    margin-bottom: 40px;
+}
+
+.impact-list li {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 22px 0;
+    border-bottom: 1px solid #000000;
+    font-size: 22px;
+    font-weight: 500;
+    color: #1A1A1A;
+}
+
+.impact-list li:last-child {
+    border-bottom: none; /* Remove line from last item */
+
+    
+}
+
+/* Small square checkmark box */
+.impact-check {
+    width: 20px;
+    height: 20px;
+    background: #1A1A1A;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    font-size: 10px;
+    flex-shrink: 0;
+}
+
+/* BLUE PRIMARY BUTTON (222x58px) */
+.btn-blue-impact {
+    width: 222px;
+    height: 58px;
+    background-color: #00AEEF;
+    border: 1.5px solid #1A1A1A;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-blue-impact:hover {
+    transform: scale(1.05);
+    background-color: #0096ce;
+}
+
+/* --- FAQ LAYOUT --- */
+.faq {
+    padding: 120px 0;
+    background-color: #FFFFFF;
+}
+
+.faq-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 80px;
+}
+
+/* Left side styling */
+.faq-left {
+    flex: 1;
+}
+
+.faq-headline {
+    font-size: 58px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 30px;
+}
+
+.faq-subtext p {
+    font-size: 22px;
+    color: #4A4A4A;
+    margin-bottom: 5px;
+}
+
+/* Right side styling */
+.faq-right {
+    flex: 1.2;
+}
+
+/* THE BOXED FAQ ITEMS */
+.faq-item {
+    border: 1.5px solid #1A1A1A;
+    border-radius: 20px;
+    margin-bottom: 16px;
+    padding: 24px 32px;
+    transition: all 0.3s ease;
+}
+
+.faq-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.faq-header h3 {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.faq-icon {
+    font-size: 28px;
+    font-weight: 400;
+}
+
+/* BODY CONTENT SLIDER */
+.faq-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, margin-top 0.3s ease;
+}
+
+.faq-body p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #4A4A4A;
+    padding-top: 15px;
+}
+
+/* ACTIVE STATE */
+.faq-item.active {
+    background-color: #F9F9F9; /* Slight tint when open like the image */
+}
+
+.faq-item.active .faq-body {
+    max-height: 300px;
+}
+
+/* PURPLE LINK */
+.see-more-faq {
+    display: inline-block;
+    margin-top: 30px;
+    color: #6200EE; /* Purple color from image */
+    font-weight: 700;
+    font-size: 22px;
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+.see-more-faq span {
+    margin-left: 8px;
+}
+
+.see-more-faq:hover {
+    opacity: 0.8;
+}
