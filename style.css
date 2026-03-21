@@ -204,6 +204,11 @@ body {
     padding: 120px 0;
     background-color: #FFFFFF;
     overflow-x: hidden; /* Prevents the whole website from shaking/scrolling horizontally */
+    overflow: visible !important; /* ADD THIS: allows cards to 'jump' higher than the section border */
+    position: relative;          /* ADD THIS: sets a base for stacking */
+    z-index: 1;
+    padding-top: 150px;
+
 }
 
 .features-header {
@@ -212,6 +217,9 @@ body {
     align-items: flex-end;
     margin-bottom: 50px;
     margin-top: 60px;
+    position: relative; /* ADD THIS */
+    z-index: 5;        /* ADD THIS: keeps the text behind the jumping cards */
+
 }
 
 .section-title {
@@ -285,9 +293,13 @@ body {
     overflow-x: auto; /* Allows scrolling */
     padding-left: var(--side-padding); /* But starts the first card aligned with your logo/headline */
     padding-right: var(--side-padding); /* Adds padding at the very end of the scroll */
-    overflow-x: scroll;
-    padding-bottom: 20px;
+    overflow-x: auto;
+    padding: 20px;
     scroll-behavior: smooth;
+
+    position: relative; /* ADD THIS */
+    z-index: 100;      /* ADD THIS: makes the hovered card sit on top of EVERYTHING else */
+
 }
 
 /* Hide scrollbar for clean look */
@@ -301,9 +313,16 @@ body {
     height: 611px;
     border-radius: 15px;
     padding: 50px;
+    
     position: relative;
     overflow: hidden;
     color: white;
+    z-index: 5;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),box-shadow 0.4s ease, z-index 0s;
     
     .card-icon {
     position: absolute;
@@ -323,13 +342,13 @@ body {
     
     /* 3. FINE-TUNING SCALE */
     /* You can also use scale() to quickly increase the size by 20% */
-    transform: scale(1.1); 
+   
     
     /* Ensures the image stays sharp */
     object-fit: contain;
     
     /* Smooth transition for any future hover effects on the image itself */
-    transition: all 0.4s ease;}
+    transition: all 0.s ease;}
 
     .card-icon1 {
     /* !This is a special styling for card icon 4 */
@@ -354,7 +373,7 @@ body {
     height: auto;
     transform: scale(1.1); 
     object-fit: contain;
-    transition: all 0.4s ease;
+   
 }
 
 
@@ -373,6 +392,7 @@ body {
 
 
 }
+
 
 .purple-card { background-color: var(--purple); }
 .dark-card { background-color: var(--dark); }
@@ -394,8 +414,9 @@ body {
 
 /* HOVER EFFECT: Scale up as you requested */
 .card-interactive:hover {
-    transform: scale(1.03); /* Slight increase in size */
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: translateY(-12px); /* Subtle lift on hover */
+    z-index: 99;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
   
 }
 
@@ -956,4 +977,118 @@ body {
 
 .see-more-faq:hover {
     opacity: 0.8;
+}
+
+/* --- FOOTER SECTION --- */
+.footer {
+    background-color: #5700C6; /* Deep vibrant purple from image */
+    color: #FFFFFF;
+    padding: 80px 0 20px 0; /* Extra top padding, less at bottom */
+    font-family: 'Palo', sans-serif;
+    overflow: hidden;
+}
+
+/* Top Navigation Bar */
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 40px;
+    border-bottom: 1.5px solid rgba(255, 255, 255, 0.3); /* Subtle white line */
+    margin-bottom: 20px;
+}
+
+.footer-brand-info p {
+    font-size: 16px;
+    line-height: 1.4;
+    opacity: 0.9;
+}
+
+.footer-socials, .footer-legal {
+    display: flex;
+    gap: 32px;
+}
+
+.footer-top a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: opacity 0.3s ease;
+}
+
+.footer-top a:hover {
+    opacity: 0.7;
+}
+
+.underline {
+    text-decoration: underline !important;
+}
+
+
+
+
+
+/* Ensure the top row of links stays aligned */
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 40px;
+    border-bottom: 1.5px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 60px; /* Space between links and the big logo */
+}
+
+/* THE LOGO CONTAINER */
+.footer-logo-container {
+    width: 100%;
+    /* No overflow allowed here */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-big-logo {
+    /* SCALING LOGIC */
+    width: 100%;       /* Fills the container width */
+    max-width: 100%;   /* Strictly forbids extruding past the container padding */
+    height: auto;      /* Keeps the logo from stretching vertically */
+    display: block;
+    
+    /* Remove any previous 'transform: scale' if you had one, 
+       as that would force it outside the padding. */
+    transform: none; 
+    
+    /* Clean rendering for SVGs or high-res PNGs */
+    image-rendering: auto;
+}
+
+/* RESPONSIVE TWEAKS */
+@media (max-width: 768px) {
+    .footer-top {
+        flex-direction: column;
+        gap: 32px;
+    }
+    
+    .footer-logo-container {
+        margin-top: 40px;
+    }
+}
+
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+    .footer-top {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .footer-socials, .footer-legal {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .giant-logo {
+        font-size: 30vw;
+    }
 }

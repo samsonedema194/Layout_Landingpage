@@ -18,4 +18,4 @@ function toggleFAQ(element) {
         faqItem.classList.add('active');
         icon.innerText = '−'; // Changes plus to minus
     }
-}
+} 
