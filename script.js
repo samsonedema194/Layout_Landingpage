@@ -19,3 +19,35 @@ function toggleFAQ(element) {
         icon.innerText = '−'; // Changes plus to minus
     }
 } 
+/**
+ * Global Slider Controller
+ * @param {string} id - The ID of the slider container
+ * @param {number} dir - 1 for Next, -1 for Prev
+ */
+function moveSlider(id, dir) {
+    const slider = document.getElementById(id);
+    
+    // Check if the slider actually exists
+    if (!slider) {
+        console.error("Slider with ID '" + id + "' not found!");
+        return;
+    }
+
+    // Find the first card to measure width
+    const card = slider.firstElementChild;
+    if (!card) return;
+
+    // Measure card + gap
+    const style = window.getComputedStyle(slider);
+    const gap = parseInt(style.gap) || parseInt(style.columnGap) || 0;
+    const scrollDistance = (card.offsetWidth + gap) * dir;
+
+    // Perform the scroll
+    slider.scrollBy({
+        left: scrollDistance,
+        behavior: 'smooth'
+    });
+    
+    console.log("Scrolling " + id + " by " + scrollDistance + "px");
+}
+

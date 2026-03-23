@@ -52,16 +52,16 @@
         <div class="features-header">
             <h1 class="section-title">Everything broken about learning? We fixed it.</h1>
             <div class="slider-controls">
-                <button class="arrow-btn" id="prevBtn">
+                <button class="arrow-btn" onclick="moveSlider('featuresSlider', -1)">
                     <img src="Assets/Icon/Prev Arrow icon.svg" alt="prev">
                 </button>
-                <button class="arrow-btn" id="nextBtn">
+                <button class="arrow-btn" onclick="moveSlider('featuresSlider', 1)">
                     <img src="Assets/Icon/Arrow icon.svg" alt="next">
                 </button>
             </div>
         </div>
 
-        <div class="features-slider" id="slider">
+        <div class="features-slider" id="featuresSlider">
             <!-- Card 1 -->
             <div class="feature-card purple-card card-interactive">
                 <div>
@@ -192,10 +192,10 @@
         <div class="features-header">
             <h1 class="section-title-2">Here's what our early  <br> community is saying.</h1>
             <div class="slider-controls">
-                <button class="arrow-btn-2" id="prevBtn">
+                <button class="arrow-btn-2" onclick="moveSlider('reviewsSlider', -1)">
                     <img src="Assets/Icon/Prev Arrow icon.svg" alt="prev">
                 </button>
-                <button class="arrow-btn-2" id="nextBtn">
+                <button class="arrow-btn-2" onclick="moveSlider('reviewsSlider', 1)">
                     <img src="Assets/Icon/Arrow icon.svg" alt="next">
                 </button>
             </div>
@@ -204,7 +204,7 @@
 
     <!-- Review Cards Wrapper (Full Bleed Layout) -->
     <div class="reviews-slider-wrapper">
-        <div class="reviews-slider" id="reviews-slider">
+        <div class="reviews-slider" id="reviewsSlider">
             
             <!-- Card: Chioma -->
             <div class="review-card">
@@ -228,6 +228,22 @@
                 <h3 class="reviewer-name">Amara</h3>
                 <p class="reviewer-text">
                     Finally, a platform that <br> doesn't talk down to <br> beginners. Clear, simple, <br> and actually fun.
+                </p>
+            </div>
+
+            <!-- Card: Tife -->
+               <div class="review-card">
+                <h3 class="reviewer-name">Tife</h3>
+                <p class="reviewer-text">
+                    Intensive and practical <br> program; improved my skills <br> fast with structured <br>lessons and collaborative <br>environment.
+                </p>
+            </div>
+
+            <!-- Card: Ovie -->
+               <div class="review-card">
+                <h3 class="reviewer-name">Ovie</h3>
+                <p class="reviewer-text">
+                    Great bootcamp with  hands-on <br> learning, supportive mentors,<br> and real-world projects <br> that build confidence.
                 </p>
             </div>
 
@@ -381,7 +397,7 @@
             </div>
 
             <!-- Purple CTA Link -->
-            <a href="#" class="see-more-faq">See more FAQs <span>&gt;</span></a>
+            <a href="https://torch-market-43b.notion.site/Layout-FAQs-30d71c99416f8084b2d9f9e524fefd6e" class="see-more-faq">See more FAQs <span>&gt;</span></a>
         </div>
     </div>
 </section>
@@ -404,13 +420,13 @@
             </div>
 
             <div class="footer-socials">
-                <a href="#">Linkedin</a>
-                <a href="#">Twitter</a>
-                <a href="#">Instagram</a>
+                <a href="https://www.linkedin.com/company/learnlayout/?viewAsMember=true">Linkedin</a>
+                <a href="https://x.com/learnlayout">Twitter</a>
+                <a href="https://www.instagram.com/learnlayout/">Instagram</a>
             </div>
 
             <div class="footer-legal">
-                <a href="#" class="legal-link underline">Legal</a>
+                <a href="#">Legal</a>
                 <a href="#">Privacy Policy</a>
                 <a href="mailto:hello@learnlayout.com">hello@learnlayout.com</a>
             </div>

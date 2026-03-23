@@ -203,8 +203,8 @@ body {
 .features {
     padding: 120px 0;
     background-color: #FFFFFF;
-    overflow-x: hidden; /* Prevents the whole website from shaking/scrolling horizontally */
-    overflow: visible !important; /* ADD THIS: allows cards to 'jump' higher than the section border */
+     /* Prevents the whole website from shaking/scrolling horizontally */
+    overflow: hidden !important; /* ADD THIS: allows cards to 'jump' higher than the section border */
     position: relative;          /* ADD THIS: sets a base for stacking */
     z-index: 1;
     padding-top: 150px;
@@ -288,8 +288,7 @@ body {
 .features-slider {
     display: flex;
     gap: 32px;
-    width: 100vw;
-    margin-left: calc(-1 * var(--side-padding)); /* Pulls it back to the very edge of the screen */
+    
     overflow-x: auto; /* Allows scrolling */
     padding-left: var(--side-padding); /* But starts the first card aligned with your logo/headline */
     padding-right: var(--side-padding); /* Adds padding at the very end of the scroll */
@@ -299,6 +298,23 @@ body {
 
     position: relative; /* ADD THIS */
     z-index: 100;      /* ADD THIS: makes the hovered card sit on top of EVERYTHING else */
+    /* Apply this to both slider classes */
+.features-slider, 
+.reviews-slider {
+    display: flex;
+    overflow-x: auto; /* Required so JavaScript can move the scroll position */
+    scroll-behavior: smooth; /* This makes the sliding look like an animation */
+    
+    /* These lines hide the ugly scrollbar at the bottom */
+    -ms-overflow-style: none;  /* IE/Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.features-slider::-webkit-scrollbar,
+.reviews-slider::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
 
 }
 
@@ -673,11 +689,26 @@ body {
     scroll-behavior: smooth;
     padding: 20px 0;
     scrollbar-width: none; /* Hide scrollbar Firefox */
+    /* Apply this to both slider classes */
+.features-slider, 
+.reviews-slider {
+    display: flex;
+    overflow-x: auto; /* Required so JavaScript can move the scroll position */
+    scroll-behavior: smooth; /* This makes the sliding look like an animation */
+    
+    /* These lines hide the ugly scrollbar at the bottom */
+    -ms-overflow-style: none;  /* IE/Edge */
+    scrollbar-width: none;  /* Firefox */
 }
 
+.features-slider::-webkit-scrollbar,
 .reviews-slider::-webkit-scrollbar {
-    display: none; /* Hide scrollbar Chrome/Safari */
+    display: none; /* Chrome, Safari, Opera */
 }
+
+}
+
+
 
 .review-card {
     /* EXACT CARD DIMENSIONS */
@@ -1007,6 +1038,31 @@ body {
 .footer-socials, .footer-legal {
     display: flex;
     gap: 32px;
+}
+
+
+    .footer-socials a, 
+.footer-legal a {
+    position: relative;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.footer-socials a::after, 
+.footer-legal a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1.5px;
+    bottom: -4px;
+    left: 0;
+    background-color: #FFFFFF;
+    transition: width 0.3s ease;
+}
+
+.footer-socials a:hover::after, 
+.footer-legal a:hover::after {
+    width: 100%; /* Line grows to full width on hover */
 }
 
 .footer-top a {
